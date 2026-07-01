@@ -1,87 +1,167 @@
-# Decentralized Weather Data Oracle and Historical Data Subgraph
+# ClimateChain
 
-This repository contains a complete local prototype for a decentralized weather data workflow. It combines:
-- a Solidity WeatherOracle contract for request/fulfill-style weather data handling,
-- a The Graph subgraph for indexing historical weather reports,
-- a React frontend for wallet connection, contract interaction, and subgraph queries.
+A decentralized weather data application that demonstrates how blockchain, smart contracts, indexing, and a web interface work together to store and retrieve weather information. The project includes a Solidity smart contract for weather requests, a The Graph subgraph for indexing historical records, and a React frontend for interacting with the application.
 
-## What is included
-- Smart contract: [contracts/WeatherOracle.sol](contracts/WeatherOracle.sol)
-- Deployment script: [scripts/deploy.js](scripts/deploy.js)
-- Interaction script: [scripts/request-weather.js](scripts/request-weather.js)
-- Contract tests: [test/WeatherOracle.test.js](test/WeatherOracle.test.js)
-- Subgraph project: [subgraph](subgraph)
-- Frontend app: [frontend](frontend)
+---
 
-## Verified local status
-The project was verified locally with:
-- `npx hardhat test` → 3 passing tests
-- `npx hardhat run scripts/deploy.js --network localhost` → deployed successfully to `0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512`
-- `cd frontend && npm run build` → production build completed successfully
+## Features
 
-## Architecture overview
-- The contract emits `WeatherRequested` and `WeatherReported` events so the subgraph can index each request and its report.
-- The subgraph maps those events into a `WeatherReport` entity with the fields required by the assignment.
-- The frontend connects MetaMask, submits weather requests, and displays the historical reports from the subgraph.
+- Smart contract for requesting and storing weather data
+- Historical weather data indexing using The Graph
+- React frontend with wallet connectivity
+- Local blockchain deployment using Hardhat
+- Automated contract testing
+- Simple and modular project structure
 
-## Local setup
+---
 
-### 1. Install dependencies
-```bash
-npm install
-cd frontend && npm install
-cd ../subgraph && npm install
+## Project Structure
+
+```
+ClimateChain/
+├── contracts/          # Solidity smart contracts
+├── scripts/            # Deployment and interaction scripts
+├── test/               # Hardhat test cases
+├── frontend/           # React application
+├── subgraph/           # The Graph subgraph
+├── docs/               # Screenshots and documentation
+├── .env.example
+└── README.md
 ```
 
-### 2. Start the local EVM node
+
+
+---
+
+## Project Components
+
+### Smart Contract
+The Weather Oracle smart contract handles weather requests and stores reported weather information through blockchain events.
+
+### Subgraph
+The Graph subgraph indexes emitted events and creates a searchable history of weather reports.
+
+### Frontend
+The React application allows users to:
+- Connect MetaMask
+- Submit weather requests
+- View indexed weather reports
+- Interact with the deployed smart contract
+
+---
+
+## Installation
+
+Install project dependencies.
+
+```bash
+npm install
+
+cd frontend
+npm install
+
+cd ../subgraph
+npm install
+```
+
+---
+
+## Run Local Blockchain
+
 ```bash
 docker compose up -d
 ```
 
-### 3. Compile and test the contracts
+---
+
+## Compile and Test
+
 ```bash
 npx hardhat compile
 npm test
 ```
 
-### 4. Deploy the contract locally
+---
+
+## Deploy Contract
+
 ```bash
 npx hardhat run scripts/deploy.js --network localhost
 ```
 
-### 5. Update the frontend and subgraph addresses
-Update the deployed contract address in:
-- [frontend/src/App.js](frontend/src/App.js)
-- [subgraph/subgraph.yaml](subgraph/subgraph.yaml)
-- [.env.example](.env.example)
+---
 
-### 6. Run the frontend
+## Configure Project
+
+Update the deployed contract address in:
+
+- `frontend/src/App.js`
+- `subgraph/subgraph.yaml`
+- `.env`
+
+---
+
+## Start Frontend
+
 ```bash
 cd frontend
 npm start
 ```
 
-## Subgraph setup
+---
+
+## Build Subgraph
+
 ```bash
 cd subgraph
+
 npx graph codegen
 npx graph build
 ```
 
-For a hosted-service deployment, authenticate and deploy with:
+For deployment:
+
 ```bash
 graph auth <GRAPH_AUTH_TOKEN>
+
 graph deploy <SUBGRAPH_NAME>
 ```
 
-## Environment variables
-Copy [.env.example](.env.example) to `.env` and update the values before deploying or running the frontend.
+---
+
+## Environment Variables
+
+Copy the example file and update the required values.
+
+```bash
+cp .env.example .env
+```
+
+---
+
+## Testing
+
+Run the test suite using:
+
+```bash
+npm test
+```
+
+---
 
 ## Screenshots
-The following placeholder screenshots are included for documentation purposes:
-- [docs/screenshots/frontend-overview.svg](docs/screenshots/frontend-overview.svg)
-- [docs/screenshots/subgraph-playground.svg](docs/screenshots/subgraph-playground.svg)
 
-## Notes
-- This local implementation uses a simplified JSON parser for temperature and description values.
-- For production-grade Chainlink deployment, replace the local placeholder flow with a real Any API job and external adapter, then fund the contract with LINK and configure the oracle and job ID.
+Store screenshots inside:
+
+```
+docs/screenshots/
+```
+
+
+---
+
+## Conclusion
+
+ClimateChain demonstrates the integration of blockchain technology with decentralized data indexing to create a transparent weather data management system. By combining Solidity smart contracts, The Graph, and a React-based interface, the project provides a complete workflow for requesting, storing, indexing, and retrieving weather information while serving as a practical foundation for building scalable decentralized oracle applications.
+
+---
