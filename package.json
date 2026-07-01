@@ -1,0 +1,20 @@
+{
+  "name": "weather-oracle-subgraph-dapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "subgraph:codegen": "cd subgraph && npm install && npx graph codegen",
+    "subgraph:build": "cd subgraph && npm install && npx graph build"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@openzeppelin/contracts": "^5.0.3",
+    "chai": "^4.1.0",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.9.0"
+  }
+}

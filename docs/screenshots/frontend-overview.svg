@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#0f172a"/>
+  <rect x="80" y="80" width="1120" height="560" rx="20" fill="#111827" stroke="#38bdf8" stroke-width="4"/>
+  <text x="120" y="150" fill="#f8fafc" font-family="Arial" font-size="32">Decentralized Weather Oracle</text>
+  <rect x="120" y="190" width="420" height="180" rx="16" fill="#1f2937"/>
+  <text x="150" y="235" fill="#f8fafc" font-family="Arial" font-size="24">Connect Wallet</text>
+  <text x="150" y="280" fill="#cbd5e1" font-family="Arial" font-size="18">MetaMask connection and account details</text>
+  <text x="150" y="320" fill="#cbd5e1" font-family="Arial" font-size="18">Request weather data for a city</text>
+  <rect x="600" y="190" width="560" height="320" rx="16" fill="#1f2937"/>
+  <text x="630" y="235" fill="#f8fafc" font-family="Arial" font-size="24">Historical Weather Reports</text>
+  <text x="630" y="280" fill="#cbd5e1" font-family="Arial" font-size="18">Indexed from The Graph</text>
+  <text x="630" y="320" fill="#cbd5e1" font-family="Arial" font-size="18">London • 21°C • light rain</text>
+  <text x="630" y="360" fill="#cbd5e1" font-family="Arial" font-size="18">Seattle • 16°C • cloudy</text>
+</svg>
